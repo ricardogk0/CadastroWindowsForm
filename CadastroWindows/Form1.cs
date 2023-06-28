@@ -12,6 +12,8 @@ namespace CadastroWindows
 {
     public partial class Form1 : Form
     {
+        private List<Pessoa> pessoas = new List<Pessoa>();
+
         public Form1()
         {
             InitializeComponent();
@@ -19,15 +21,9 @@ namespace CadastroWindows
 
         private void btn_cadastrar_Click(object sender, EventArgs e)
         {
-            List<Pessoa> pessoa = new List<Pessoa>();
-            pessoa.Add(new Pessoa { codigo = 0});
-            pessoa.Add(new Pessoa { nome = tb_nome.Text });
-            pessoa.Add(new Pessoa { cpf = tb_cpf.Text });
-            pessoa.Add(new Pessoa { email = tb_email.Text });
-            pessoa.Add(new Pessoa { telefone = tb_tel.Text });
+            Cadastrar();
             MessageBox.Show("Cadastro realizado com sucesso");
 
-            //FormCadastros formCadastros = new FormCadastros(pessoa);
         }
 
         private void btn_fechar_Click(object sender, EventArgs e)
@@ -37,7 +33,23 @@ namespace CadastroWindows
 
         private void btn_visualizar_Click(object sender, EventArgs e)
         {
-            FormCadastros formCadastros = new FormCadastros();
+            Associar();           
+        }
+
+        private void Cadastrar()
+        {
+            Pessoa pessoa = new Pessoa();
+            pessoa.codigo = 0;
+            pessoa.nome = tb_nome.Text;
+            pessoa.cpf = tb_cpf.Text;
+            pessoa.email = tb_email.Text;
+            pessoa.telefone = tb_tel.Text;
+            pessoas.Add(pessoa);
+        }
+
+        private void Associar()
+        {
+            FormCadastros formCadastros = new FormCadastros(pessoas);
             formCadastros.Show();
         }
     }

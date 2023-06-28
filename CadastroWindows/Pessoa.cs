@@ -14,8 +14,18 @@ namespace CadastroWindows
         public string email { get; set; }
         public string telefone { get; set; }
 
-        
+        public Pessoa(int codigo, string nome, string cpf, string email, string telefone)
+        {
+            this.codigo = codigo;
+            this.nome = nome;
+            this.cpf = cpf;
+            this.email = email;
+            this.telefone = telefone;
+        }
 
+        public Pessoa()
+        {
 
+        }
     }
 }

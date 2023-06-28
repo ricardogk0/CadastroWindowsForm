@@ -14,32 +14,16 @@ namespace CadastroWindows
     {
         private List<Pessoa> pessoas;
 
-        public FormCadastros()
+        public FormCadastros(List<Pessoa> pessoas)
         {
             InitializeComponent();
-            ConfiguraDataGridView();
-            DataGridView();
+            this.pessoas = pessoas;
+            AssociarDataGridView();
         }
 
-        private void DataGridView()
+        private void AssociarDataGridView()
         {
-
             dataGridView1.DataSource = pessoas;
-            
-            //dataGridView1.Columns.Add("cl_nome", "Nome");
-            //dataGridView1.Columns["cl_nome"].DataPropertyName = "Nome";
-            //Controls.Add(dataGridView1);
-        }
-
-        private void ConfiguraDataGridView()
-        {
-            dataGridView1.AutoGenerateColumns = false;
-
-            DataGridViewTextBoxColumn colunaNome = new DataGridViewTextBoxColumn();
-            colunaNome.Name = "cl_nome";
-            colunaNome.HeaderText = "Nome";
-            colunaNome.DataPropertyName = "Nome";
-            dataGridView1.Columns.Add(colunaNome);
         }
 
     }

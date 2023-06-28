@@ -28,18 +28,36 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pessoaBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.codigoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nomeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cpfDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.emailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.telefoneDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pessoaBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.codigoDataGridViewTextBoxColumn,
+            this.nomeDataGridViewTextBoxColumn,
+            this.cpfDataGridViewTextBoxColumn,
+            this.emailDataGridViewTextBoxColumn,
+            this.telefoneDataGridViewTextBoxColumn});
+            this.dataGridView1.DataSource = this.pessoaBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(6, 6);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(770, 420);
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.Size = new System.Drawing.Size(767, 420);
             this.dataGridView1.TabIndex = 0;
             // 
             // panel1
@@ -49,6 +67,45 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(776, 426);
             this.panel1.TabIndex = 0;
+            // 
+            // pessoaBindingSource
+            // 
+            this.pessoaBindingSource.DataSource = typeof(CadastroWindows.Pessoa);
+            // 
+            // codigoDataGridViewTextBoxColumn
+            // 
+            this.codigoDataGridViewTextBoxColumn.DataPropertyName = "codigo";
+            this.codigoDataGridViewTextBoxColumn.HeaderText = "Código";
+            this.codigoDataGridViewTextBoxColumn.Name = "codigoDataGridViewTextBoxColumn";
+            this.codigoDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // nomeDataGridViewTextBoxColumn
+            // 
+            this.nomeDataGridViewTextBoxColumn.DataPropertyName = "nome";
+            this.nomeDataGridViewTextBoxColumn.HeaderText = "Nome";
+            this.nomeDataGridViewTextBoxColumn.Name = "nomeDataGridViewTextBoxColumn";
+            this.nomeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // cpfDataGridViewTextBoxColumn
+            // 
+            this.cpfDataGridViewTextBoxColumn.DataPropertyName = "cpf";
+            this.cpfDataGridViewTextBoxColumn.HeaderText = "CPF";
+            this.cpfDataGridViewTextBoxColumn.Name = "cpfDataGridViewTextBoxColumn";
+            this.cpfDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // emailDataGridViewTextBoxColumn
+            // 
+            this.emailDataGridViewTextBoxColumn.DataPropertyName = "email";
+            this.emailDataGridViewTextBoxColumn.HeaderText = "Email";
+            this.emailDataGridViewTextBoxColumn.Name = "emailDataGridViewTextBoxColumn";
+            this.emailDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // telefoneDataGridViewTextBoxColumn
+            // 
+            this.telefoneDataGridViewTextBoxColumn.DataPropertyName = "telefone";
+            this.telefoneDataGridViewTextBoxColumn.HeaderText = "Telefone";
+            this.telefoneDataGridViewTextBoxColumn.Name = "telefoneDataGridViewTextBoxColumn";
+            this.telefoneDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // FormCadastros
             // 
@@ -60,13 +117,19 @@
             this.Text = "FormCadastros";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pessoaBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Panel panel1;
+        public System.Windows.Forms.DataGridView dataGridView1;
+        public System.Windows.Forms.BindingSource pessoaBindingSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn codigoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nomeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cpfDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn emailDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn telefoneDataGridViewTextBoxColumn;
     }
 }
