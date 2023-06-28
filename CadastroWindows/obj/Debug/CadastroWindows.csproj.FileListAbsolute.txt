@@ -1,0 +1,12 @@
+D:\Aprendendo C#\Desafios\Cadastro\CadastroWindows\bin\Debug\CadastroWindows.exe.config
+D:\Aprendendo C#\Desafios\Cadastro\CadastroWindows\bin\Debug\CadastroWindows.exe
+D:\Aprendendo C#\Desafios\Cadastro\CadastroWindows\bin\Debug\CadastroWindows.pdb
+D:\Aprendendo C#\Desafios\Cadastro\CadastroWindows\obj\Debug\CadastroWindows.csproj.AssemblyReference.cache
+D:\Aprendendo C#\Desafios\Cadastro\CadastroWindows\obj\Debug\CadastroWindows.csproj.SuggestedBindingRedirects.cache
+D:\Aprendendo C#\Desafios\Cadastro\CadastroWindows\obj\Debug\CadastroWindows.Form1.resources
+D:\Aprendendo C#\Desafios\Cadastro\CadastroWindows\obj\Debug\CadastroWindows.Properties.Resources.resources
+D:\Aprendendo C#\Desafios\Cadastro\CadastroWindows\obj\Debug\CadastroWindows.csproj.GenerateResource.cache
+D:\Aprendendo C#\Desafios\Cadastro\CadastroWindows\obj\Debug\CadastroWindows.csproj.CoreCompileInputs.cache
+D:\Aprendendo C#\Desafios\Cadastro\CadastroWindows\obj\Debug\CadastroWindows.exe
+D:\Aprendendo C#\Desafios\Cadastro\CadastroWindows\obj\Debug\CadastroWindows.pdb
+D:\Aprendendo C#\Desafios\Cadastro\CadastroWindows\obj\Debug\CadastroWindows.FormCadastros.resources
