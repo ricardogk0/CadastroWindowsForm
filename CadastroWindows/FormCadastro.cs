@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Npgsql;
 
 namespace CadastroWindows
 {
@@ -23,8 +24,6 @@ namespace CadastroWindows
         private void btn_cadastrar_Click(object sender, EventArgs e)
         {
             Cadastrar();
-            MessageBox.Show("Cadastro realizado com sucesso");
-
         }
 
         private void btn_fechar_Click(object sender, EventArgs e)
@@ -37,20 +36,43 @@ namespace CadastroWindows
             Associar();           
         }
 
-        private void Cadastrar()
-        {
-            Pessoa pessoa = new Pessoa();
-            pessoa.nome = tb_nome.Text;
-            pessoa.cpf = tb_cpf.Text;
-            pessoa.email = tb_email.Text;
-            pessoa.telefone = tb_tel.Text;
-            pessoas.Add(pessoa);
-        }
 
         private void Associar()
         {
-            FormPessoa formCadastros = new FormPessoa(pessoas);
+            FormPessoa formCadastros = new FormPessoa();
             formCadastros.Show();
+        }
+
+        private void Cadastrar()
+        {
+            string connectionString = "Server=localhost;Port=5432;Database=cadastropessoa_db;User Id=postgres1;Password=123;";
+
+            using (NpgsqlConnection connection = new NpgsqlConnection(connectionString))
+            {
+                connection.Open();
+
+                string sql = "INSERT INTO pessoa (codigo, nome, cnpjcpf, email, telefone) VALUES (@codigo, @tb_nome.Text, @tb_cpf.Text, @tb_email.Text, @tb_tel.Text)";
+
+                using (NpgsqlCommand command = new NpgsqlCommand(sql, connection))
+                {
+                    command.Parameters.AddWithValue("@codigo", tb_cod.Text);
+                    command.Parameters.AddWithValue("@tb_nome.Text", tb_nome.Text);
+                    command.Parameters.AddWithValue("@tb_cpf.Text", tb_cpf.Text);
+                    command.Parameters.AddWithValue("@tb_email.Text", tb_email.Text);
+                    command.Parameters.AddWithValue("@tb_tel.Text", tb_tel.Text);
+
+                    int rowsAffected = command.ExecuteNonQuery();
+
+                    if (rowsAffected > 0)
+                    {
+                        MessageBox.Show("Cadastro realizado com sucesso!");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Erro ao realizar o cadastro.");
+                    }
+                }
+            }
         }
     }
 }

@@ -7,23 +7,39 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Npgsql;
 
 namespace CadastroWindows
 {
     public partial class FormPessoa : Form
     {
-        private List<Pessoa> pessoas;
 
-        public FormPessoa(List<Pessoa> pessoas)
+        public FormPessoa()
         {
-            InitializeComponent();
-            this.pessoas = pessoas;
-            AssociarDataGridView();
+            InitializeComponent();           
+            PreencherDataGrid();
         }
 
-        private void AssociarDataGridView()
+        private void PreencherDataGrid()
         {
-            dataGridView1.DataSource = pessoas;
+            string connectionString = "Server=localhost;Port=5432;Database=cadastropessoa_db;User Id=postgres1;Password=123;";
+
+            using (NpgsqlConnection connection = new NpgsqlConnection(connectionString))
+            {
+                connection.Open();
+
+                string sql = "SELECT codigo, nome, cnpjcpf, email, telefone FROM pessoa";
+
+                using (NpgsqlCommand command = new NpgsqlCommand(sql, connection))
+                {
+                    using (NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(command))
+                    {
+                        DataTable dataTable = new DataTable();
+                        adapter.Fill(dataTable);
+                        dataGridView1.DataSource = dataTable;
+                    }
+                }
+            }
         }
 
     }
