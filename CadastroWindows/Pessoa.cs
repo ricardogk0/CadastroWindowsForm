@@ -23,6 +23,11 @@ namespace CadastroWindows
             this.telefone = telefone;
         }
 
+        public Pessoa(int codigo)
+        {
+            this.codigo = codigo;
+        }
+
         public Pessoa()
         {
 

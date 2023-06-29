@@ -1,6 +1,6 @@
 ﻿namespace CadastroWindows
 {
-    partial class Form1
+    partial class FormCadastro
     {
         /// <summary>
         /// Variável de designer necessária.
@@ -40,19 +40,22 @@
             this.label5 = new System.Windows.Forms.Label();
             this.tb_tel = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btn_cadastrar = new System.Windows.Forms.Button();
-            this.btn_fechar = new System.Windows.Forms.Button();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.btn_visualizar = new System.Windows.Forms.Button();
+            this.btn_fechar = new System.Windows.Forms.Button();
+            this.btn_cadastrar = new System.Windows.Forms.Button();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(23, 25);
+            this.label1.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.label1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label1.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.label1.Location = new System.Drawing.Point(26, 24);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(40, 13);
+            this.label1.Size = new System.Drawing.Size(42, 15);
             this.label1.TabIndex = 0;
             this.label1.Text = "Código";
             // 
@@ -138,15 +141,15 @@
             this.panel1.Size = new System.Drawing.Size(371, 38);
             this.panel1.TabIndex = 10;
             // 
-            // btn_cadastrar
+            // btn_visualizar
             // 
-            this.btn_cadastrar.Location = new System.Drawing.Point(26, 3);
-            this.btn_cadastrar.Name = "btn_cadastrar";
-            this.btn_cadastrar.Size = new System.Drawing.Size(75, 23);
-            this.btn_cadastrar.TabIndex = 0;
-            this.btn_cadastrar.Text = "Cadastrar";
-            this.btn_cadastrar.UseVisualStyleBackColor = true;
-            this.btn_cadastrar.Click += new System.EventHandler(this.btn_cadastrar_Click);
+            this.btn_visualizar.Location = new System.Drawing.Point(144, 3);
+            this.btn_visualizar.Name = "btn_visualizar";
+            this.btn_visualizar.Size = new System.Drawing.Size(75, 23);
+            this.btn_visualizar.TabIndex = 2;
+            this.btn_visualizar.Text = "Visualizar";
+            this.btn_visualizar.UseVisualStyleBackColor = true;
+            this.btn_visualizar.Click += new System.EventHandler(this.btn_visualizar_Click);
             // 
             // btn_fechar
             // 
@@ -158,25 +161,26 @@
             this.btn_fechar.UseVisualStyleBackColor = true;
             this.btn_fechar.Click += new System.EventHandler(this.btn_fechar_Click);
             // 
+            // btn_cadastrar
+            // 
+            this.btn_cadastrar.Location = new System.Drawing.Point(26, 3);
+            this.btn_cadastrar.Name = "btn_cadastrar";
+            this.btn_cadastrar.Size = new System.Drawing.Size(75, 23);
+            this.btn_cadastrar.TabIndex = 0;
+            this.btn_cadastrar.Text = "Cadastrar";
+            this.btn_cadastrar.UseVisualStyleBackColor = true;
+            this.btn_cadastrar.Click += new System.EventHandler(this.btn_cadastrar_Click);
+            // 
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
-            // btn_visualizar
-            // 
-            this.btn_visualizar.Location = new System.Drawing.Point(144, 3);
-            this.btn_visualizar.Name = "btn_visualizar";
-            this.btn_visualizar.Size = new System.Drawing.Size(75, 23);
-            this.btn_visualizar.TabIndex = 2;
-            this.btn_visualizar.Text = "Visualizar";
-            this.btn_visualizar.UseVisualStyleBackColor = true;
-            this.btn_visualizar.Click += new System.EventHandler(this.btn_visualizar_Click);
-            // 
-            // Form1
+            // FormCadastro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(371, 311);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.tb_tel);
@@ -189,8 +193,8 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.tb_cod);
             this.Controls.Add(this.label1);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "FormCadastro";
+            this.Text = "Cadastro Pessoa";
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();

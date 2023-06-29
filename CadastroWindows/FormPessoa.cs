@@ -10,11 +10,11 @@ using System.Windows.Forms;
 
 namespace CadastroWindows
 {
-    public partial class FormCadastros : Form
+    public partial class FormPessoa : Form
     {
         private List<Pessoa> pessoas;
 
-        public FormCadastros(List<Pessoa> pessoas)
+        public FormPessoa(List<Pessoa> pessoas)
         {
             InitializeComponent();
             this.pessoas = pessoas;

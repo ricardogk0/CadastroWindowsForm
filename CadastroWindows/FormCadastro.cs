@@ -10,13 +10,14 @@ using System.Windows.Forms;
 
 namespace CadastroWindows
 {
-    public partial class Form1 : Form
+    public partial class FormCadastro : Form
     {
         private List<Pessoa> pessoas = new List<Pessoa>();
 
-        public Form1()
+        public FormCadastro()
         {
             InitializeComponent();
+            Pessoa pessoa = new Pessoa();
         }
 
         private void btn_cadastrar_Click(object sender, EventArgs e)
@@ -39,7 +40,6 @@ namespace CadastroWindows
         private void Cadastrar()
         {
             Pessoa pessoa = new Pessoa();
-            pessoa.codigo = 0;
             pessoa.nome = tb_nome.Text;
             pessoa.cpf = tb_cpf.Text;
             pessoa.email = tb_email.Text;
@@ -49,7 +49,7 @@ namespace CadastroWindows
 
         private void Associar()
         {
-            FormCadastros formCadastros = new FormCadastros(pessoas);
+            FormPessoa formCadastros = new FormPessoa(pessoas);
             formCadastros.Show();
         }
     }
