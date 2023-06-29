@@ -13,6 +13,7 @@ namespace CadastroWindows
 {
     public partial class FormPessoa : Form
     {
+        string connectionString = "Server=localhost;Port=5432;Database=cadastropessoa_db;User Id=postgres1;Password=123;";
 
         public FormPessoa()
         {
@@ -20,15 +21,24 @@ namespace CadastroWindows
             PreencherDataGrid();
         }
 
+        private void btn_excluir_Click(object sender, EventArgs e)
+        {
+            ExcluirPessoa();
+        }
+
+        private void btn_add_Click(object sender, EventArgs e)
+        {
+            FormCadastro formCadastro = new FormCadastro();
+            formCadastro.Show();
+        }
+
         private void PreencherDataGrid()
         {
-            string connectionString = "Server=localhost;Port=5432;Database=cadastropessoa_db;User Id=postgres1;Password=123;";
-
             using (NpgsqlConnection connection = new NpgsqlConnection(connectionString))
             {
                 connection.Open();
 
-                string sql = "SELECT codigo, nome, cnpjcpf, email, telefone FROM pessoa";
+                string sql = "SELECT codigo, nome, cnpjcpf as cpf, email, telefone FROM pessoa";
 
                 using (NpgsqlCommand command = new NpgsqlCommand(sql, connection))
                 {
@@ -42,5 +52,51 @@ namespace CadastroWindows
             }
         }
 
+        private void ExcluirPessoa()
+        {
+            if(dataGridView1.SelectedRows.Count > 0)
+            {
+                DialogResult result = MessageBox.Show("Deseja excluir o cadastro?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
+                {
+                    DataGridViewRow selectRow = dataGridView1.SelectedRows[0];
+                    string codigo = selectRow.Cells["codigoDataGridViewTextBoxColumn"].Value.ToString();
+                    string sql = "DELETE FROM pessoa WHERE codigo = @codigo";
+
+                    using (NpgsqlConnection connection = new NpgsqlConnection(connectionString))
+                    {
+                        connection.Open();
+
+                        using (NpgsqlCommand command = new NpgsqlCommand(sql, connection))
+                        {
+                            command.Parameters.AddWithValue("@codigo", codigo);
+                            int rowsAffected = command.ExecuteNonQuery();
+                            
+                            if(rowsAffected > 0)
+                            {
+                                MessageBox.Show("Cadastro excluido com sucesso!");
+                                PreencherDataGrid();
+                            }
+                            else
+                            {
+                                MessageBox.Show("Erro ao excluir cadastro");
+                            }
+                        }
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Nenhuma linha selecionada");
+            }
+                       
+        }
+
+        private void EditarPessoa()
+        {
+
+        }
+
+        
     }
 }

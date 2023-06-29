@@ -13,12 +13,9 @@ namespace CadastroWindows
 {
     public partial class FormCadastro : Form
     {
-        private List<Pessoa> pessoas = new List<Pessoa>();
-
         public FormCadastro()
         {
             InitializeComponent();
-            Pessoa pessoa = new Pessoa();
         }
 
         private void btn_cadastrar_Click(object sender, EventArgs e)
@@ -33,14 +30,13 @@ namespace CadastroWindows
 
         private void btn_visualizar_Click(object sender, EventArgs e)
         {
-            Associar();           
+            AbrirForm();
         }
 
-
-        private void Associar()
+        private void AbrirForm()
         {
-            FormPessoa formCadastros = new FormPessoa();
-            formCadastros.Show();
+            FormPessoa formPessoa = new FormPessoa();
+            formPessoa.Show();
         }
 
         private void Cadastrar()
